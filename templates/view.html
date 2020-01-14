@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block style %}
+.heading{
+    margin-left:4%;
+    font-family: 'Lobster', cursive;
+    font-size:50px;
+}
+.para{
+    font-family: 'Lobster', cursive;
+    font-size:20px;
+    width:700px;
+    margin:50px;
+}
+{% endblock style %}
+
+
+{% block body %}
+<h1 class="heading">Author:{{data[0][1]}}</h1>
+<p class="para">{{data[0][2]}}</p>
+{% endblock body %}

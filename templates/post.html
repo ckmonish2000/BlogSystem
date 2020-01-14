@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Admin Area
+{% endblock title %}
+
+{% block style %}
+label{
+    font-family: 'Lobster', cursive;
+}
+
+.parent{
+    width:600px;
+    margin:30px;
+}
+
+.headings{
+    font-family: 'Lobster', cursive;
+    margin-top:2%;
+    margin-left:3%;
+    text-decoration: underline;
+
+}
+{% endblock style %}
+
+
+
+{% block body %}
+<h1 class="headings"> Dashboard</h1>
+<br>
+<div class="parent">
+<form action="/post" method="Post" class="form-group">
+<label> Author </label>
+<input type="text" placeholder="Author Name" name="author" class="form-control">
+<br>
+<label> enter the content</label>
+<textarea  placeholder="type the content" name="content" class="form-control"></textarea>
+<br>
+<input type="submit" class="btn btn-primary">
+
+</form>
+</div>
+{% endblock body %}
+

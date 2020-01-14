@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Hello World!!!!
+{% endblock title %}
+{% block style %}
+.container{
+display:grid;
+column-gap:5px;
+row-gap:-5px;
+margin-left:15px;
+grid-template-columns: auto auto;
+grid-template-rows: auto auto;
+ 
+
+}
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.0), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+    margin:20px;
+    width:500px;
+    height:200px;
+    border-radius:8px;
+    padding:10px;
+    font-family: 'Lobster', cursive;
+}
+
+.heading{
+    margin-left:4%;
+    font-family: 'Lobster', cursive;
+    font-size:50px;
+}
+
+a{
+    text-decoration: inherit;
+    color: inherit;
+    
+    
+}
+
+.card:hover{
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
+     border-radius:25px;
+     transition: 0.3s;
+     
+}
+a:hover{
+    text-decoration: none;
+     color: none;
+     color:black;
+}
+{% endblock style %}
+
+
+
+{% block body %}
+
+<h2 class="heading"><a href="/post">&#x1f60e;</a> Hi! i am Monish Karunakaran, <br> A FullStack Developer....</h2>
+
+<div class="container" >
+
+<a href="https://www.instagram.com/monish_karunakaran/">
+<div class="card" >
+<h2>About me</h2>
+<p>Take a deep dive on to my social life</p>
+</div>
+</a>
+
+<a href="https://github.com/ckmonish2000" >
+<div class="card" >
+<h2>portfolio</h2>
+<p>Have a look at my work</p>
+</div>
+</a>
+
+
+
+<a href="/blog">
+<div class="card" >
+<h2>Blog</h2>
+<p>Stay updated with the current trends</p>
+</div>
+</a>
+</div>
+{% endblock body %}
+
