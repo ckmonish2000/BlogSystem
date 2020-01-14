@@ -1,4 +1,4 @@
-from flask import Flask,render_template,url_for,request
+from flask import Flask,render_template,url_for,request,redirect
 from sqlalchemy import create_engine,MetaData,Table,Column,Integer,String
 
 
@@ -62,6 +62,14 @@ def view(num):
     result=exe.fetchall()
     return render_template("view.html",data=result)
 
+
+
+@app.route("/delete/<int:num>")
+def delete(num):
+    conn=engine.connect()
+    dell=blog.delete().where(blog.c.id==num)
+    conn.execute(dell)
+    return redirect(url_for("blogs"))
 
 
 if __name__=="__main__":
