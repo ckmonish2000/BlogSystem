@@ -72,6 +72,22 @@ def delete(num):
     return redirect(url_for("blogs"))
 
 
+
+@app.route("/update/<int:num>",methods=["GET","POST"])
+def update(num):
+    conn=engine.connect()
+    if request.method=="POST":
+        auth=request.form.get("author")
+        cont=request.form.get("content")
+        updation=blog.update().where(blog.c.id==num).values(author=auth,content=cont)
+        conn.execute(updation)
+        return redirect(url_for("blogs"))
+        
+    sel=blog.select().where(blog.c.id==num)
+    exe=conn.execute(sel)
+    result=exe.fetchone()
+    return render_template("editpage.html",data=result)
+
 if __name__=="__main__":
     app.run(debug=True)
 

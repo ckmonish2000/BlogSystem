@@ -19,6 +19,10 @@
 <h1 class="heading">Author:{{data[0][1]}}</h1>
 <p class="para">{{data[0][2]}}</p>
 
+<div style="margin-left:2%">
+<a href="/update/{{data[0][0]}}" class="btn btn-success">update</a>
+<a href="/delete/{{data[0][0]}}" class="btn btn-danger">delete</a>
 
-<a href="/delete/{{data[0][0]}}">delete</a>
+
+</div>
 {% endblock body %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Admin Area
+{% endblock title %}
+
+{% block style %}
+label{
+    font-family: 'Lobster', cursive;
+}
+
+.parent{
+    width:600px;
+    margin:30px;
+}
+
+.headings{
+    font-family: 'Lobster', cursive;
+    margin-top:2%;
+    margin-left:3%;
+    text-decoration: underline;
+
+}
+{% endblock style %}
+
+
+
+{% block body %}
+<h1 class="headings">update</h1>
+<br>
+<div class="parent">
+<form action="/update/{{data[0]}}" method="Post" class="form-group">
+<label> Author </label>
+<input type="text" placeholder="Author Name" name="author" class="form-control" value={{data[1]}}>
+<br>
+<label> enter the content</label>
+<textarea   name="content" class="form-control">{{data[2]}}</textarea>
+<br>
+<input type="submit" class="btn btn-primary">
+
+</form>
+
+<p>{{data}}</p>
+</div>
+{% endblock body %}
+
