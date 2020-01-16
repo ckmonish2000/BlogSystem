@@ -1,4 +1,5 @@
 from flask import Flask,render_template,url_for,request,redirect
+import json
 from sqlalchemy import create_engine,MetaData,Table,Column,Integer,String
 
 
@@ -87,6 +88,20 @@ def update(num):
     exe=conn.execute(sel)
     result=exe.fetchone()
     return render_template("editpage.html",data=result)
+
+@app.route("/search")
+def search():
+    conn=engine.connect()
+    q=request.args.get("q")
+    sel=blog.select().where(blog.c.author==q)
+    exe=conn.execute(sel)
+    result=exe.fetchone()
+    j={"id":result[0],"author":result[1],"data":result[2]}
+    mrj=json.dumps(j)
+    print(result)
+    return mrj
+
+
 
 if __name__=="__main__":
     app.run(debug=True)
